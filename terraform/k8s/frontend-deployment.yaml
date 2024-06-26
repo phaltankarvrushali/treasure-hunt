@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twtr-fe-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: twtr-fe
+  template:
+    metadata:
+      labels:
+        app: twtr-fe
+    spec:
+      containers:
+        - name: twtr-fe
+          image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: REACT_APP_API_SERVICE_URL
+              value: "http://52.71.87.185:30001"

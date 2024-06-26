@@ -1,3 +1,9 @@
+.DS_Store
+cheatsheet.txt
+.terraform*
+**/.idea
+
+
 # Logs
 logs
 *.log

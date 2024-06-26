@@ -1,0 +1,61 @@
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0; /* Remove default margin for full-screen effect */
+    background-color: #f0f0f0; /* Light background color */
+    font-family: sans-serif;
+}
+
+.game-title {
+    font-size: 2em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2); /* Subtle text shadow */
+}
+
+score {
+    font-weight: bold; /* Already bold */
+    font-size: 1.2em; /* Increase font size slightly */
+    display: flex; /* Allow inline elements within the score */
+    align-items: center;
+}
+
+.treasure-icon {
+    margin-left: 5px; /* Add spacing between score and icon */
+    color: gold;
+}
+
+.waiting-message {
+    font-style: italic;
+    color: #888;
+}
+
+/* Map container animation (optional) */
+.game-container > * { /* Target all direct children of the container */
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Marker pulse animation (optional) */
+.marker {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.1);
+    }
+}

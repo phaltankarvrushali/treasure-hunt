@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twtr-be-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: twtr-be
+  template:
+    metadata:
+      labels:
+        app: twtr-be
+    spec:
+      containers:
+      - name: twtr-be
+        image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-be:latest
+        ports:
+        - containerPort: 5000
+        env:
+        - name: REDIS_HOST
+          value: "twtr-redis-service"
+        - name: REDIS_PORT
+          value: "6379"

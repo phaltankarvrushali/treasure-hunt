@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twtr-redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: twtr-redis
+  template:
+    metadata:
+      labels:
+        app: twtr-redis
+    spec:
+      containers:
+        - name: twtr-redis
+          image: redis:latest
+          ports:
+            - containerPort: 6379

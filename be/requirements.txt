@@ -1,0 +1,17 @@
+flask
+flask-bcrypt
+flask-cors
+flask-api
+python-dotenv
+pymongo
+requests
+gunicorn
+PyJWT
+python-dateutil
+pytz
+dnspython
+Werkzeug==2.3
+Flask-Login==0.6.3
+Flask>0.7.1
+redis
+boto3

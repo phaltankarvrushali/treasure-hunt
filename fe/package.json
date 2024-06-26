@@ -1,0 +1,46 @@
+{
+  "name": "rxshell",
+  "version": "0.1.0",
+  "port": "3000",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.7.1",
+    "@material-ui/icons": "^4.5.1",
+    "@material-ui/lab": "^4.0.0-alpha.56",
+    "axios": "^0.19.2",
+    "github-markdown-css": "4.x",
+    "pigeon-maps": "^0.21.6",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-hook-form": "^6.4.1",
+    "react-markdown": "4.x",
+    "react-native-web": "0.11.7",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.3",
+    "react-swipeable-views": "^0.13.9",
+    "recharts": "^1.8.5",
+    "tubular-react": "^4.2.5",
+    "use-sound": "^4.0.3"
+  },
+  "scripts": {
+    "start": "react-scripts --openssl-legacy-provider start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
