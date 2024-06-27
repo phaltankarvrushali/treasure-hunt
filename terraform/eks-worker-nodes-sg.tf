@@ -41,20 +41,20 @@ resource "aws_security_group_rule" "demo-node-ingress-cluster" {
 
 resource "aws_security_group_rule" "demo-node-ingress-http" {
     description       = "Allow access to NodePort 30002"
-    from_port         = 5000
+    from_port         = 30002
     protocol          = "tcp"
     security_group_id = aws_security_group.demo-node.id
-    to_port           = 5000
+    to_port           = 30002
     cidr_blocks       = ["0.0.0.0/0"]
     type              = "ingress"
 }
 
 resource "aws_security_group_rule" "demo-node-ingress-http-2" {
     description       = "Allow access to NodePort 30001"
-    from_port         = 80
+    from_port         = 30001
     protocol          = "tcp"
     security_group_id = aws_security_group.demo-node.id
-    to_port           = 80
+    to_port           = 30001
     cidr_blocks       = ["0.0.0.0/0"]
     type              = "ingress"
 }

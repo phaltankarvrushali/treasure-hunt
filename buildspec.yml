@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "us-east-1"
-    REACT_APP_API_SERVICE_URL: "http://ecs-load-balancer-2004208094.us-east-1.elb.amazonaws.com"
+    REACT_APP_API_SERVICE_URL: "http://18.208.196.7:30001"
 
 phases:
   install:
