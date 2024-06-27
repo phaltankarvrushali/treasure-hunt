@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "us-east-1"
-    REACT_APP_API_SERVICE_URL: "http://3.231.95.122:30001"
+    REACT_APP_API_SERVICE_URL: "http://18.204.43.187:30001"
 
 phases:
   install:

@@ -3,14 +3,14 @@ kind: Service
 metadata:
   name: twtr-be-service
 spec:
-  type: LoadBalancer
+  type: NodePort
   selector:
     app: twtr-be
   ports:
     - port: 5000
       targetPort: 5000
       protocol: TCP
-      # nodePort: 30001
+      nodePort: 30001
 
 
 
