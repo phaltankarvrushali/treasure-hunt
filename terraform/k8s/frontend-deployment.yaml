@@ -20,4 +20,4 @@ spec:
             - containerPort: 80
           env:
             - name: REACT_APP_API_SERVICE_URL
-              value: "http://18.208.196.7:30001"
+              value: "http://ad4955a1afbd146eb9bf2c70661f4411-821095862.us-east-1.elb.amazonaws.com"
