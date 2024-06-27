@@ -59,3 +59,27 @@ resource "aws_security_group_rule" "demo-cluster-ingress-nodeport-30002" {
   to_port           = 30002
   type              = "ingress"
 }
+
+
+
+
+# New rules for ports 5000 and 80 from anywhere
+resource "aws_security_group_rule" "demo-cluster-ingress-nodeport-80" {
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "Allow access to NodePort 30001 from anywhere"
+  from_port         = 80
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.demo-cluster.id}"
+  to_port           = 80
+  type              = "ingress"
+}
+
+resource "aws_security_group_rule" "demo-cluster-ingress-nodeport-5000" {
+  cidr_blocks       = ["0.0.0.0/0"]
+  description       = "Allow access to NodePort 30002 from anywhere"
+  from_port         = 5000
+  protocol          = "tcp"
+  security_group_id = "${aws_security_group.demo-cluster.id}"
+  to_port           = 5000
+  type              = "ingress"
+}
