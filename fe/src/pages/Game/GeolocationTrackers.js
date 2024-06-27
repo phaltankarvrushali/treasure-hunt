@@ -124,7 +124,7 @@ const GeolocationTracker = () => {
             const updatedTreasures = treasures.filter(item => item.id !== treasure.id);
             setTreasures(updatedTreasures);
             setScore(score + 1);
-            axios.post("https://3b57-155-33-133-48.ngrok-free.app/update-user-score", {
+            axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/update-user-score`, {
                 inserted_id: inserted_id,
                 score: score + 1,
             })
@@ -181,7 +181,7 @@ const GeolocationTracker = () => {
             console.log(inserted_id);
             localStorage.setItem('user', JSON.stringify(session));
 
-            axios.post("https://3b57-155-33-133-48.ngrok-free.app/update-user-location", {
+            axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/update-user-location`, {
                 inserted_id: inserted_id,
                 location: { latitude, longitude },
             })
@@ -201,7 +201,7 @@ const GeolocationTracker = () => {
             'ngrok-skip-browser-warning': 'any_value_here', // Set it to any non-empty value'Content-Type': 'application/json'// Set appropriate content type if sending JSON payload
         };
         //const otherUserIds = ['user1', 'user2']; // Replace with actual user IDs
-        axios.get("https://3b57-155-33-133-48.ngrok-free.app/user-results", {
+        axios.get(`${process.env.REACT_APP_API_SERVICE_URL}/user-results`, {
             headers
         })
             .then((response) => {

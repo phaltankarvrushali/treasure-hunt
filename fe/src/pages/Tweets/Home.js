@@ -18,7 +18,7 @@ const THome = () => {
         },
       };
 
-      const res = await fetch("https://3b57-155-33-133-48.ngrok-free.app/tweets-results", requestOptions);
+      const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`, requestOptions);
 
       
       //const res = await fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/tweets-results`);
@@ -32,7 +32,7 @@ const THome = () => {
 	    setLoading(false);
     };
  
-    console.log("Home.js: fetching from " + "https://3b57-155-33-133-48.ngrok-free.app/tweets-results")
+    console.log("Home.js: fetching from " + `${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`)
     fetchData();
   }, []);
 

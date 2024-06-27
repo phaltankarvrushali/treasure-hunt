@@ -15,6 +15,7 @@ spec:
       containers:
       - name: twtr-be
         image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
         env:
@@ -22,3 +23,4 @@ spec:
           value: "twtr-redis-service"
         - name: REDIS_PORT
           value: "6379"
+          

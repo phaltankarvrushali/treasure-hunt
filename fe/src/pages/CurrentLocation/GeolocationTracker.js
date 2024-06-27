@@ -68,7 +68,7 @@ const GeolocationTracker = () => {
             console.log(inserted_id)
             localStorage.setItem('user', JSON.stringify(session)); //updated in the local Storage
 
-            axios.post("https://3b57-155-33-133-48.ngrok-free.app/update-user-location", {
+            axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/update-user-location`, {
                 inserted_id: inserted_id,
                 location: { latitude, longitude },
             })

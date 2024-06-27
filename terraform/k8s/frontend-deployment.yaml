@@ -15,6 +15,7 @@ spec:
       containers:
         - name: twtr-fe
           image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-fe:prod
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
           env:
