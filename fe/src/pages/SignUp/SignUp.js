@@ -81,7 +81,7 @@ const SignUp = () => {
   }
 
   const registerUser = (username, email, password, latitude, longitude, img_url) => {
-    axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/new-user`, {
+    axios.post("https://3b57-155-33-133-48.ngrok-free.app/new-user", {
       username,
       email,
       password,

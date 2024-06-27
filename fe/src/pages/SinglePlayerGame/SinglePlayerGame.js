@@ -83,7 +83,7 @@ const GeolocationTracker = () => {
             const updatedTreasures = treasures.filter(item => item.id !== treasure.id);
             setTreasures(updatedTreasures);
             setScore(score + 1);
-            axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/update-user-score`, {
+            axios.post("https://3b57-155-33-133-48.ngrok-free.app/update-user-score", {
                 inserted_id: inserted_id,
                 score: score + 1,
             })
@@ -160,7 +160,7 @@ const GeolocationTracker = () => {
             console.log(inserted_id)
             localStorage.setItem('user', JSON.stringify(session)); //updated in the local Storage
 
-            axios.post(`${process.env.REACT_APP_API_SERVICE_URL}/update-user-location`, {
+            axios.post("https://3b57-155-33-133-48.ngrok-free.app/update-user-location", {
                 inserted_id: inserted_id,
                 location: { latitude, longitude },
             })
