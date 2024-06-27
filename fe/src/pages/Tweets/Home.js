@@ -9,7 +9,18 @@ const THome = () => {
   
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`);
+
+      const requestOptions = {
+        headers: {
+          'Content-Type': 'application/json', 
+          'ngrok-skip-browser-warning': 'true', // Include ngrok specific header
+        
+        },
+      };
+
+      const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`, requestOptions);
+
+      
       //const res = await fetch(`${process.env.REACT_APP_BE_NETWORK}:${process.env.REACT_APP_BE_PORT}/tweets-results`);
       // const res = await fetch(`${process.env.REACT_APP_API_SERVICE_URL}/tweets-results`);
       // const res = await fetch(`tweets-results`);

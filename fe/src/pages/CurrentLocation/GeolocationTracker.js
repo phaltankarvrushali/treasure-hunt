@@ -87,7 +87,7 @@ const GeolocationTracker = () => {
     const color = `hsl(${hue % 360}deg 39% 70%)`
 
     return (
-        <><h1>Hi, {userId}, This is your current position</h1>
+        <><h1>Hi {userId} This is your current position</h1>
         <Map height={600} defaultCenter={position}  defaultZoom={13}>
             <Marker
                 width={50}

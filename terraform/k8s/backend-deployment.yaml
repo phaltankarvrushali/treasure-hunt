@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: twtr-be
-        image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-be:latest
+        image: 211125510167.dkr.ecr.us-east-1.amazonaws.com/twtr-be:prod
         ports:
         - containerPort: 5000
         env:

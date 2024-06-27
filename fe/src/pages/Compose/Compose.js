@@ -152,7 +152,7 @@ const Compose = () => {
       <Paper className={classes.paper} elevation={6}>
         <div className={classes.container}>
           <Typography component="h1" variant="h5">
-            {'Compose Tweet'}
+            {'Compose Message'}
           </Typography>
           <form className={classes.form} onSubmit={handleSubmit} noValidate>
             <TextField
@@ -176,7 +176,7 @@ const Compose = () => {
               required
               fullWidth
               id="tweet"
-              label={'Tweet'}
+              label={'Message'}
               name="tweet"
               autoComplete="tweet"
               autoFocus

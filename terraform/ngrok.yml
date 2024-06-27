@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 2iRL6OCqY6aoM5t56ccKxgpYYTO_4TySC59FUmMr3wb3hW5Pr
+tunnels:
+  fe:
+    addr: http://18.208.196.7:30002
+    proto: http
+  be:
+    addr: http://18.208.196.7:30001
+    proto: http

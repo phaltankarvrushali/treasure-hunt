@@ -10,7 +10,10 @@ const UHome = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_SERVICE_URL}/user-results`);
+                const headers = {
+                    'ngrok-skip-browser-warning': 'any_value_here', // Set it to any non-empty value'Content-Type': 'application/json'// Set appropriate content type if sending JSON payload
+                };
+                const response = await axios.get(`${process.env.REACT_APP_API_SERVICE_URL}/user-results`, { headers })
                 console.log('These are the current users', response.data);
                 const { users } = response.data;
                 setUsers(users);

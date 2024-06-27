@@ -197,9 +197,12 @@ const GeolocationTracker = () => {
 
 
     const fetchAllUsersLocations = () => {
+        const headers = {
+            'ngrok-skip-browser-warning': 'any_value_here', // Set it to any non-empty value'Content-Type': 'application/json'// Set appropriate content type if sending JSON payload
+        };
         //const otherUserIds = ['user1', 'user2']; // Replace with actual user IDs
         axios.get(`${process.env.REACT_APP_API_SERVICE_URL}/user-results`, {
-
+            headers
         })
             .then((response) => {
                 const { users } = response.data;
@@ -223,9 +226,6 @@ const GeolocationTracker = () => {
             <div >
 
                 <h1 className="game-title">Treasure Hunt Game</h1>
-                <p className="game-title">
-                    Your Score: {score} <i className="fas fa-gem treasure-icon"></i>
-                </p>
                 <div className="timer" style={{ fontSize: '24px', fontWeight: 'bold' }}>
                     Time Left: {Math.floor(timeLeft / 60)}:{timeLeft % 60 < 10 ? `0${timeLeft % 60}` : timeLeft % 60}
                 </div>
