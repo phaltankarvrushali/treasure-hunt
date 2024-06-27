@@ -227,7 +227,6 @@ export default function Dashboard() {
             {/* Left pane menu items */}
             <List>
 
-               Tweets menu item
               <ListItem button component={Link} to="/messages" onClick={onItemClick('Messages')}>
                 <ListItemIcon>
                   <DashboardIcon />
