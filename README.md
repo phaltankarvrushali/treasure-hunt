@@ -1,7 +1,7 @@
 ## Project Overview
-This project is a Treasure Hunt Game developed using ReactJS for the frontend, Flask for the backend, and Redis for real-time data storage. The application is deployed on AWS EKS with a CI/CD pipeline using AWS CodeBuild and Terraform
+This project is a Treasure Hunt Game developed using ReactJS for the frontend, Flask for the backend, and Redis for real-time data storage. The application is deployed on AWS EKS with a CI/CD pipeline using AWS CodeBuild and Terraform. The Treasure Hunt Game allows players to participate in a location-based treasure hunt. The players' locations are updated in real-time using Redis, ensuring a smooth and responsive gaming experience.
 
-The Treasure Hunt Game allows players to participate in a location-based treasure hunt. The players' locations are updated in real-time using Redis, ensuring a smooth and responsive gaming experience.
+This project is a part of our coursework for course CSYE7220 Deployment and Operation of Software Applications(DevOps) by Professor Dino Konstantopoulos
 
 ## Architecture
 Frontend: Built with ReactJS, it provides the user interface for the game.
@@ -34,3 +34,5 @@ Create a Kubernetes deployment and service for Redis.
 
 ## Team Members:
 Vrushali Phaltankar, Unnati Aggarwal, Mengyue Liu
+
+## More details about running the project are updated in Manifest.md
