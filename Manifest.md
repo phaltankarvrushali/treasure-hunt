@@ -76,24 +76,26 @@ Pass in each of your get requests
 ## Deployment on cloud with EKS, CodeBuild and Terraform:
 
 1. Run terraform init
-    terraform plan
-    terraform apply
-    terraform output kubeconfig > kubeconfig
-    terraform output config_map_aws_auth > config-map-aws-auth.yaml
+    a. terraform plan
+    b. terraform apply
+    c. terraform output kubeconfig > kubeconfig
+    d. terraform output config_map_aws_auth > config-map-aws-auth.yaml
 
-2. cp kubeconfig ~/.kube/config-eks
-   export KUBECONFIG=~/.kube/config-eks
-   kubectl apply -f config-map-aws-auth.yaml
-   Check for "kubectl get nodes" to verify terraform configuration
+2. Kubernetes EKS configuration
+   a. cp kubeconfig ~/.kube/config-eks
+   b. export KUBECONFIG=~/.kube/config-eks
+   c. kubectl apply -f config-map-aws-auth.yaml
+   d. Check for "kubectl get nodes" to verify terraform configuration
 
-3. kubectl get nodes -owide
-   Copy the nodeIP 
-   Paste the nodeIP with "http://nodeIP:30001" in REACT_APP_API_SERVICE_URL variable in buildspec.yaml and push code to GitHub for the CodeBuild to run automatically and images will be  updated in ECR
+4. Node IP
+   a. kubectl get nodes -owide
+   b. Copy the nodeIP 
+   c. Paste the nodeIP with "http://nodeIP:30001" in REACT_APP_API_SERVICE_URL variable in buildspec.yaml and push code to GitHub for the CodeBuild to run automatically and images will be  updated in ECR
 
-4. Apply k8s config files
-   cd k8s
-   kubectl apply -f redis-deployment.yaml -f redis-service.yaml -f backend-deployment.yaml -f backend-service.yaml -f frontend-deployment.yaml -f frontend-service.yaml
-   To verify db, check "kubectl get pods"
-   kubectl exec -it <redis-pod-name> redis-cli
-   KEYS '*'
-   terraform destroy
+6. Apply k8s config files
+   a. cd k8s
+   b. kubectl apply -f redis-deployment.yaml -f redis-service.yaml -f backend-deployment.yaml -f backend-service.yaml -f frontend-deployment.yaml -f frontend-service.yaml
+   c. To verify db, check "kubectl get pods"
+   d. kubectl exec -it <redis-pod-name> redis-cli
+   e. KEYS '*'
+   f. terraform destroy
