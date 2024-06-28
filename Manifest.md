@@ -73,29 +73,65 @@ const headers = {
 ```
 Pass in each of your get requests
 
-## Deployment on cloud with EKS, CodeBuild and Terraform:
 
-1. Run terraform init
-    a. terraform plan
-    b. terraform apply
-    c. terraform output kubeconfig > kubeconfig
-    d. terraform output config_map_aws_auth > config-map-aws-auth.yaml
+# Deployment on Cloud with EKS, CodeBuild, and Terraform
 
-2. Kubernetes EKS configuration
-   a. cp kubeconfig ~/.kube/config-eks
-   b. export KUBECONFIG=~/.kube/config-eks
-   c. kubectl apply -f config-map-aws-auth.yaml
-   d. Check for "kubectl get nodes" to verify terraform configuration
+## Step 1: Initialize and Apply Terraform Configuration
+1. Run the following Terraform commands:
+    ```sh
+    terraform init
+    terraform plan
+    terraform apply
+    terraform output kubeconfig > kubeconfig
+    terraform output config_map_aws_auth > config-map-aws-auth.yaml
+    ```
 
-4. Node IP
-   a. kubectl get nodes -owide
-   b. Copy the nodeIP 
-   c. Paste the nodeIP with "http://nodeIP:30001" in REACT_APP_API_SERVICE_URL variable in buildspec.yaml and push code to GitHub for the CodeBuild to run automatically and images will be  updated in ECR
+## Step 2: Kubernetes EKS Configuration
+1. Copy the kubeconfig file:
+    ```sh
+    cp kubeconfig ~/.kube/config-eks
+    export KUBECONFIG=~/.kube/config-eks
+    ```
+2. Apply the AWS auth configuration:
+    ```sh
+    kubectl apply -f config-map-aws-auth.yaml
+    ```
+3. Verify the Terraform configuration by checking the nodes:
+    ```sh
+    kubectl get nodes
+    ```
 
-6. Apply k8s config files
-   a. cd k8s
-   b. kubectl apply -f redis-deployment.yaml -f redis-service.yaml -f backend-deployment.yaml -f backend-service.yaml -f frontend-deployment.yaml -f frontend-service.yaml
-   c. To verify db, check "kubectl get pods"
-   d. kubectl exec -it <redis-pod-name> redis-cli
-   e. KEYS '*'
-   f. terraform destroy
+## Step 3: Obtain Node IP
+1. Get the node IPs:
+    ```sh
+    kubectl get nodes -o wide
+    ```
+2. Copy the node IP and update the `REACT_APP_API_SERVICE_URL` variable in `buildspec.yaml`:
+    ```sh
+    http://<nodeIP>:30001
+    ```
+3. Push the code to GitHub for CodeBuild to run automatically. The images will be updated in ECR.
+
+## Step 4: Apply Kubernetes Configuration Files
+1. Navigate to the k8s directory:
+    ```sh
+    cd k8s
+    ```
+2. Apply the deployment and service configurations:
+    ```sh
+    kubectl apply -f redis-deployment.yaml -f redis-service.yaml -f backend-deployment.yaml -f backend-service.yaml -f frontend-deployment.yaml -f frontend-service.yaml
+    ```
+3. Verify the database setup:
+    ```sh
+    kubectl get pods
+    kubectl exec -it <redis-pod-name> redis-cli
+    KEYS '*'
+    ```
+
+## Step 5: Destroy the Terraform Infrastructure
+1. Destroy the infrastructure when no longer needed:
+    ```sh
+    terraform destroy
+    ```
+
+Replace `<redis-pod-name>` with the actual name of the Redis pod obtained from the `kubectl get pods` command.
