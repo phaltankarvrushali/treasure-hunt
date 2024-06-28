@@ -79,6 +79,7 @@ Pass in each of your get requests
 ## Step 1: Initialize and Apply Terraform Configuration
 1. Run the following Terraform commands:
     ```sh
+    cd terraform
     terraform init
     terraform plan
     terraform apply
@@ -129,11 +130,11 @@ Pass in each of your get requests
     ```
 
 ## Step 5: Destroy the Terraform Infrastructure
-1. Destroy the infrastructure when no longer needed:
+1. Destroy the infrastructure:
     ```sh
     terraform destroy
     ```
 
 Replace `<redis-pod-name>` with the actual name of the Redis pod obtained from the `kubectl get pods` command.
 
-Our code is working on EKS for the features that do not require Geolocation because we have not implemented HTTP to Https with certificate. Apart from this, all other functionalities are working on EKS as well as locally.
+Our code is working on EKS for the features that do not require Geolocation because we have not implemented HTTP to Https with SSL certificate. Apart from this, all other functionalities are working on EKS as well as locally.
