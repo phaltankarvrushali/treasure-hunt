@@ -135,3 +135,5 @@ Pass in each of your get requests
     ```
 
 Replace `<redis-pod-name>` with the actual name of the Redis pod obtained from the `kubectl get pods` command.
+
+Our code is working on EKS for the features that do not require Geolocation because we have not implemented HTTP to Https with certificate. Apart from this, all other functionalities are working on EKS as well as locally.
